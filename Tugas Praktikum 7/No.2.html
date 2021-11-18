@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="Author" content="Dave Sammy Mulyawan 2072039"/>
+    </head>
+    <body>
+        <p id="kembalian"></p>
+        <p id="tenTh"></p>
+        <p id="fiveTh"></p>
+        <p id="twoTh"></p>
+        <p id="oneTh"></p>
+        <p id="fiveH"></p>
+
+        <script type="text/javascript">
+            var textKembalian = "Kembaliannya sebesar Rp.";
+            var rincian = " dengan rincian kembalian:";
+            var total;
+            var bayar;
+            total = prompt("Masukan nilai total belanja");
+            bayar = prompt("Masukan nilai uang yang dibayar");
+            var kembalian = parseInt(bayar) - parseInt(total);
+            
+            var tenTh = 0;
+            var fiveTh = 0;
+            var twoTh = 0;
+            var oneTh = 0;
+            var fiveH = 0;
+            var temp = 0;
+
+            //10000
+            while (true){
+                temp += 10000;
+                tenTh++;
+                if (temp > kembalian){
+                    temp -= 10000;
+                    tenTh--;
+                    break;
+                }
+            }
+            
+            //5000
+            while (true){
+                temp += 5000;
+                fiveTh++;
+                if (temp > kembalian){
+                    temp -= 5000;
+                    fiveTh--;
+                    break;
+                }
+            }
+
+            //2000
+            while (true){
+                temp += 2000;
+                twoTh++;
+                if (temp > kembalian){
+                    temp -= 2000;
+                    twoTh--;
+                    break;
+                }
+            }
+
+            //1000
+            while (true){
+                temp += 1000;
+                oneTh++;
+                if (temp > kembalian){
+                    temp -= 1000;
+                    oneTh--;
+                    break;
+                }
+            }
+
+            //500
+            while (true){
+                temp += 500;
+                fiveH++;
+                if (temp > kembalian){
+                    temp -= 500;
+                    fiveH--;
+                    break;
+                }
+            }
+
+            document.getElementById("kembalian").innerHTML = textKembalian + temp + rincian;
+
+            if (tenTh != 0){
+            document.getElementById("tenTh").innerHTML = "Uang Rp.10000 sebanyak " + tenTh + " lembar";
+            }
+            if (fiveTh != 0){
+            document.getElementById("fiveTh").innerHTML = "Uang Rp.5000 sebanyak " + fiveTh + " lembar";
+            }
+            if (twoTh != 0){
+            document.getElementById("twoTh").innerHTML = "Uang Rp.2000 sebanyak " + twoTh + " lembar";
+            }
+            if (oneTh != 0){
+            document.getElementById("oneTh").innerHTML = "Uang Rp.1000 sebanyak " + oneTh + " lembar"; 
+            }
+            if (fiveH != 0){
+            document.getElementById("fiveH").innerHTML = "Uang Rp.500 sebanyak " + fiveH + " lembar";
+            }
+        </script>
+    </body>
+</html>
